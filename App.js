@@ -3,6 +3,7 @@ import { StyleSheet} from 'react-native';
 import {Font} from 'expo';
 import { Container, Spinner, Content, Text, View  } from 'native-base';
 import firebase from 'firebase';
+import Main from './Components/main';
 
 //-------------------------Components
 import Log from './Components/log'
@@ -18,6 +19,7 @@ export default class App extends React.Component {
   }
 
 
+
   async componentWillMount() {
    Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
@@ -29,6 +31,16 @@ export default class App extends React.Component {
     setTimeout(() => {
       this.setState({fontsAreLoaded: true});
     }, 500)
+
+    //---------------- Para no tener que loguearme cada vez durante el desarrollo
+    /*this.setState({
+      user: {
+        displayName: 'Juan Carlos Santa Abreu',
+        email: 'Jcarlossa120@hotmail.com',
+        photoURL: "https://firebasestorage.googleapis.com/v0/b/universidad-41c49.appspot.com/o/profilePics%2Fno-photo-male.jpg?alt=media&token=65b5f92a-aab5-47c8-bcd5-dee6758335ba",
+        uid: "JCARLOSSA120@HOTMAIL%2ECOM"
+      }
+    })*/
 
   }
 
@@ -51,7 +63,7 @@ export default class App extends React.Component {
       //-----------------Verifica si el usuario esta logueadop
       if (this.state.user) {
         return(
-          <Text>Loguado</Text>
+          <Main user={this.state.user}/>
         )
       }
       else{

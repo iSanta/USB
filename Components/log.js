@@ -174,7 +174,6 @@ class Log extends React.Component{
               <Input secureTextEntry={true} id='Pass' placeholder="Password" onChangeText={(pass) => {this.setState({pass})}} />
             </Item>
           </Form>
-          <Text>{this.state.email}</Text>
           <Button onPress={this.sessionInit} style={styles.buttons} block ><Text style={styles.buttonsText}> Iniciar sesion </Text></Button>
           <View style={{marginTop: 100, borderTopColor: '#e4e4e4', borderTopWidth: 1}}>
             <Text style={styles.texts}>Si no te encuentras registrado, puedes hacerlo a continuación. </Text>
